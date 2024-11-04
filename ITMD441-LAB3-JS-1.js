@@ -18,7 +18,7 @@ function updateCalculations() {
         return;
     }
 
-    // Update Tip Percentage field
+    // Update Tip Percentage field to show the percentage selected on the slider
     document.getElementById("tipPercentage").value = `${tipSlider}%`;
 
     // Calculate tip and total amounts
@@ -30,8 +30,18 @@ function updateCalculations() {
     const convertedTotal = (totalWithTip * conversionRates[currency]).toFixed(2);
 
     // Update fields with converted values
-    document.getElementById("tipAmount").value = `${convertedTipAmount} ${currency}`;
-    document.getElementById("totalWithTip").value = `${convertedTotal} ${currency}`;
+    document.getElementById("tipAmount").value = `${currencySymbol(currency)} ${convertedTipAmount}`;
+    document.getElementById("totalWithTip").value = `${currencySymbol(currency)} ${convertedTotal}`;
+}
+
+// Helper function to get currency symbol
+function currencySymbol(currency) {
+    const symbols = {
+        USD: "$",
+        INR: "₹",
+        JPY: "¥"
+    };
+    return symbols[currency] || "$";
 }
 
 // Add event listeners
