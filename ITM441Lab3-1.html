@@ -7,35 +7,42 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="tip-calculator">
+    <div class="calculator-container">
+        <h1>Tip Calculator</h1>
         <form id="tipForm">
-            <label for="billAmount">Bill Total:</label>
-            <input type="text" id="billAmount" name="billAmount">
+            <!-- Bill Total Input -->
+            <label for="billTotal">Bill Total: $</label>
+            <input type="text" id="billTotal" placeholder="Enter bill amount">
 
-            <label for="tipSlider">Tip Percentage:</label>
-            <input type="range" id="tipSlider" name="tipSlider" min="0" max="100">
-            <input type="text" id="tipPercentage" name="tipPercentage" disabled>
-
-            <label for="tipAmount">Tip Amount:</label>
-            <input type="text" id="tipAmount" name="tipAmount" disabled>
-
-            <label for="totalWithTip">Total Bill with Tip:</label>
-            <input type="text" id="totalWithTip" name="totalWithTip" disabled>
-        </form>
-    </div>
-    <script src="script.js"></script>
-
-            <!-- Extra Credit: Currency Selector -->
-            <label for="currency">Currency:</label>
+            <!-- Currency Selector -->
+            <label for="currency">Select Currency:</label>
             <select id="currency">
                 <option value="USD">Dollar ($)</option>
                 <option value="INR">Indian Rupee (₹)</option>
                 <option value="JPY">Yen (¥)</option>
             </select>
-            <div id="conversionRateInfo">Conversion rates: $1 = ₹84.07, ¥149.34</div>
+
+            <!-- Tip Percentage Input (Slider) -->
+            <label for="tipSlider">Tip:</label>
+            <input type="range" id="tipSlider" min="0" max="100" value="10">
+            <input type="text" id="tipPercentage" disabled>
+
+            <!-- Calculated Tip Amount -->
+            <label for="tipAmount">Converted Tip Amount:</label>
+            <input type="text" id="tipAmount" disabled>
+
+            <!-- Total Bill with Tip -->
+            <label for="totalWithTip">Converted Total Bill with Tip:</label>
+            <input type="text" id="totalWithTip" disabled>
         </form>
+
+        <!-- Conversion Info Box -->
+        <div class="conversion-info">
+            <p>Currency conversion:</p>
+            <p>$1 USD = ¥149.34 JPY for Yen</p>
+            <p>$1 USD = ₹84.07 INR for Rupee</p>
+        </div>
     </div>
     <script src="script.js"></script>
-
 </body>
 </html>
